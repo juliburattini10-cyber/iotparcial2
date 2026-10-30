@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -164.6, "left": 247.2, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": -74.1, "left": -12.2, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -218.4,
+      "left": 232.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -109.2,
+      "left": 272.6,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "gas1:AOUT", "uno:A0", "green", [ "h0" ] ],
+    [ "gas1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "gas1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "led1:A", "uno:8", "green", [ "v0" ] ],
+    [ "bz1:2", "uno:9", "green", [ "v0" ] ],
+    [ "bz1:1", "bb1:1t.c", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:2t.c", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:5b.h", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:4b.h", "", [ "$bb" ] ],
+    [ "uno:GND.1", "bb1:4b.j", "black", [ "v0" ] ],
+    [ "uno:GND.3", "bb1:1t.e", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
